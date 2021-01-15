@@ -64,30 +64,24 @@ exports.post_edit = (req, res) => {
   };
   // update the values in the database
 
-  Post.updateOne({ id }, updated, {}, (err, success) => {
+  Post.updateOne({ _id: id }, updated, {}, (err, success) => {
     if (err) console.log(err);
 
     res.send(success);
   });
 };
 
-exports.post_delete = (req, res) => {
+exports.post_delete = async (req, res) => {
   try {
-    var _id = req.body._id;
-
     //if the user isnt the correct user he wont be allowed to edit
 
-    if (_id !== req.params.id) {
-      console.log("attempt failed");
-      res.redirect("/");
-    } else {
-      var holder = req.params.id;
-      Post.deleteOne({ holder }, {}, (err, result) => {
-        if (err) console.log(err);
+    var id = req.params.id;
+    var dot = await Post.deleteOne({ _id: id }, {}, (err, result) => {
+      if (err) console.log(err);
 
-        res.send(result);
-      });
-    }
+      console.log(result);
+      res.send(result);
+    });
   } catch (error) {
     console.log(error);
     res.redirect("/social");
