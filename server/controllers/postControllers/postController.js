@@ -51,29 +51,24 @@ exports.post_one = (req, res) => {
 };
 
 exports.post_edit = (req, res) => {
-  try {
-    var id = req.params.id;
-    //get data from the body to update
-    var title = req.body.title;
-    var body = req.body.body;
-    var hidden = req.body.hidden;
-    //collect the data in order to update the database
-    var updated = {
-      title,
-      body,
-      hidden,
-    };
-    // update the values in the database
+  var id = req.params.id;
+  //get data from the body to update
+  var title = req.body.title;
+  var body = req.body.body;
+  var hidden = req.body.hidden;
+  //collect the data in order to update the database
+  var updated = {
+    title,
+    body,
+    hidden,
+  };
+  // update the values in the database
 
-    Post.updateOne({ id }, updated, (err, result) => {
-      if (err) console.log(err);
+  Post.updateOne({ id }, updated, {}, (err, success) => {
+    if (err) console.log(err);
 
-      res.send(result);
-    });
-  } catch (error) {
-    console.log(error);
-    res.redirect("/social");
-  }
+    res.send(success);
+  });
 };
 
 exports.post_delete = (req, res) => {
