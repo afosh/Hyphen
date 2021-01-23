@@ -11,6 +11,8 @@ exports.post_get = (req, res) => {
 };
 */
 
+// please implement authorization steps regarding deleting and updating
+
 exports.post_create = (req, res) => {
   try {
     let title = req.body.title;
@@ -29,7 +31,9 @@ exports.post_create = (req, res) => {
     });
   } catch (error) {
     console.log(err);
-    res.redirect("/social");
+    res.json({
+      message: error,
+    });
   }
 };
 
@@ -46,12 +50,16 @@ exports.post_one = (req, res) => {
     });
   } catch (error) {
     console.log(err);
-    res.redirect("/social");
+    res.json({
+      message: "Post doenst exists",
+    });
   }
 };
 
 exports.post_edit = (req, res) => {
   var id = req.params.id;
+  var _id = req.body._id;
+
   //get data from the body to update
   var title = req.body.title;
   var body = req.body.body;
@@ -64,10 +72,10 @@ exports.post_edit = (req, res) => {
   };
   // update the values in the database
 
-  Post.updateOne({ _id: id }, updated, {}, (err, success) => {
+  Post.updateOne({ _id: id }, updated, {}, (err, result) => {
     if (err) console.log(err);
 
-    res.send(success);
+    res.json(result);
   });
 };
 
@@ -80,10 +88,10 @@ exports.post_delete = async (req, res) => {
       if (err) console.log(err);
 
       console.log(result);
-      res.send(result);
+      res.json(result);
     });
   } catch (error) {
     console.log(error);
-    res.redirect("/social");
+    res.json({ error });
   }
 };

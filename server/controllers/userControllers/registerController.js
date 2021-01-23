@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
 
 //get Register Page
-exports.register_get = function(req, res) {
+exports.register_get = function (req, res) {
   const bearerHeader = req.headers["autorization"];
   if (typeof bearerHeader !== "undefined") {
     res.redirect("/");
@@ -11,7 +11,7 @@ exports.register_get = function(req, res) {
 };
 
 //register post
-exports.register_post = function(req, res) {
+exports.register_post = function (req, res) {
   // check if the user isnt already logged in
   const bearerHeader = req.headers["autorization"];
   if (typeof bearerHeader !== "undefined") {
@@ -23,14 +23,14 @@ exports.register_post = function(req, res) {
     var email = req.body.email;
     let role = 0;
     //hashing the password for protection
-    bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(password, salt, function(err, hash) {
+    bcrypt.genSalt(10, function (err, salt) {
+      bcrypt.hash(password, salt, function (err, hash) {
         password = hash;
         var data = new User({
           name,
           password,
           email,
-          role
+          role,
         });
         // checking if the username already exist in the database
         User.findOne({ name }, (err, results) => {
@@ -47,9 +47,11 @@ exports.register_post = function(req, res) {
                 res.send("email exist");
               } else {
                 //if username and email dont exist on the database, register them.
-                console.log("registered successfully");
+
                 data.save();
-                res.redirect("/");
+                res.json({
+                  message: "successfully registered",
+                });
               }
             });
           }

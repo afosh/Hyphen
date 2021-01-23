@@ -10,16 +10,19 @@ exports.profile_get = (req, res) => {
     if (typeof result !== "undefined") {
       let collection = {
         name: result.name,
+        body: result.body,
         email: result.email,
         projects: result.projects,
         posts: result.posts,
         role: result.role,
-        friends
+        friends,
       };
       res.json(collection);
       //if the user doesnt exists
     } else {
-      res.send("User No Longer Exists!");
+      res.json({
+        message: "No User Exists",
+      });
     }
   });
 };
@@ -32,23 +35,22 @@ exports.profile_edit = (req, res) => {
 
   if (_id !== req.params.id) {
     console.log("attempt failed");
-    res.redirect("/");
+    res.json({
+      message: "you dont have the authority",
+    });
   } else {
     //get data from the body to update
-    var info = req.body.info;
-    var type = req.body.type;
-
+    var newInfo = req.body.info;
     //collect the data in order to update the database
     var updated = {
-      info,
-      type
+      body: newInfo,
     };
     // update the values in the database
 
     User.updateOne({ _id }, updated, (err, result) => {
       if (err) console.log(err);
 
-      res.send(result);
+      res.json(result);
     });
   }
 };

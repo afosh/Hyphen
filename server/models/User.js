@@ -4,15 +4,16 @@ const userSchema = new mongoose.Schema({
   password: String,
   email: String,
   role: Number,
+  body: String,
   about: {
     info: String,
     type: String,
-    profilePic: String
+    profilePic: String,
   },
   friends: [{ id: String, friendName: String }],
   projects: [{ projectId: String }],
   posts: [{ postId: String }],
-  date: { type: Date, default: Date.now() }
+  date: { type: Date, default: Date.now() },
 });
 // compile our model
 const User = mongoose.model("User", userSchema);

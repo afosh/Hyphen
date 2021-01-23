@@ -4,6 +4,6 @@ var Router = express.Router();
 const projectsTimeLineController = require("../controllers/timelineControllers/projectsTimeLineController");
 
 //Get Projects TimeLine
-Router.get("/v1/projects", projectsTimeLineController.projectsTimeLine_get);
+Router.get("/v1/", projectsTimeLineController.projectsTimeLine_get);
 
 module.exports = Router;

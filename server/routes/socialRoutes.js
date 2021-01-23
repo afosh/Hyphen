@@ -8,7 +8,7 @@ const postController = require("../controllers/postControllers/postController");
 Router.get("/", postsTimeLineController.postsTimeLine);
 
 //Get Post
-Router.get("/post/:id", postController.post_one);
+Router.get("/posts/post/:id", postController.post_one);
 
 //Create Post
 

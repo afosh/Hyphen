@@ -35,12 +35,14 @@ exports.Course_create = (req, res) => {
 
       data.save();
 
-      res.redirect("/course/");
+      res.json({ data });
     }
   } catch (error) {
     console.log(error);
 
-    res.redirect("/");
+    res.json({
+      message: "error",
+    });
   }
 };
 
@@ -61,10 +63,10 @@ exports.course_edit = (req, res) => {
   };
   // update the values in the database
 
-  Course.updateOne({ _id: id }, updated, {}, (err, success) => {
+  Course.updateOne({ _id: id }, updated, {}, (err, result) => {
     if (err) console.log(err);
 
-    res.send(success);
+    res.json(result);
   });
 };
 
@@ -83,7 +85,7 @@ exports.course_get_one = (req, res) => {
       });
   } catch (error) {
     console.log(error);
-    res.redirect("/course");
+    res.json({ error });
   }
 };
 
@@ -93,10 +95,10 @@ exports.course_delete = (req, res) => {
     Course.deleteOne({ _id: id }, {}, (err, result) => {
       if (err) console.log(err);
 
-      res.json(result);
+      res.json({ result });
     });
   } catch (error) {
     console.log(error);
-    res.redirect("/course");
+    res.json({ error });
   }
 };
