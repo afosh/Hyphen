@@ -46,9 +46,7 @@ async function createProject(files, req) {
 exports.getProjects = async (req, res) => {
   await Project.find((err, result) => {
     if (err) console.log(err);
-    res.json({
-      result,
-    });
+    res.json(result);
   });
 };
 
@@ -57,7 +55,7 @@ exports.getSingleProject = async (req, res) => {
   Project.findOne({ _id: id }, (err, result) => {
     if (err) console.log(err);
 
-    res.json({ result });
+    res.json(result);
   });
 };
 
