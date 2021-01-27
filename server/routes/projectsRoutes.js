@@ -7,9 +7,11 @@ const projectController = require("../controllers/projectControllers/projectCont
 //Get Projects TimeLine
 Router.get("/v1/", projectsTimeLineController.projectsTimeLine_get);
 
+//uploading a project file and creating it on the database
+
 Router.post(
   "/v2/upload",
-
+  hanlderController.upload.single("zip"),
   projectController.uploadProject
 );
 module.exports = Router;
