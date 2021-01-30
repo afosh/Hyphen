@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const { db } = require("../../models/User");
 const User = require("../../models/User");
 
 //get Register Page
@@ -22,8 +23,32 @@ exports.register_post = function (req, res) {
     var password = req.body.password;
     var email = req.body.email;
     let role = 0;
-    //hashing the password for protection
-    bcrypt.genSalt(10, function (err, salt) {
+
+    User.find({ name, email }, (err, result) => {
+      if (err) console.log(err);
+
+      if (result !== null || result !== "undefined") {
+        var data = new User({
+          name,
+          password,
+          email,
+          role,
+        });
+        console.log(data);
+        data.save((err, result) => {
+          if (err) console.log(err);
+
+          res.send(result);
+        });
+      } else {
+        res.send("user exist or email is already registered");
+      }
+    });
+  }
+};
+
+/* 
+  bcrypt.genSalt(10, function (err, salt) {
       bcrypt.hash(password, salt, function (err, hash) {
         password = hash;
         var data = new User({
@@ -58,5 +83,4 @@ exports.register_post = function (req, res) {
         });
       });
     });
-  }
-};
+  */

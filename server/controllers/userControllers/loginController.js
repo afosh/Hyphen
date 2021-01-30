@@ -1,8 +1,9 @@
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
 const { signed } = require("../../middlewares/isAuth");
+const { find } = require("../../models/User");
 //Get User Login
-exports.login_get = function(req, res) {
+exports.login_get = function (req, res) {
   const bearerHeader = req.headers["autorization"];
   if (typeof bearerHeader !== "undefined") {
     res.redirect("/");
@@ -12,7 +13,7 @@ exports.login_get = function(req, res) {
   res.send("welcome to the login page");
 };
 //Post User Login
-exports.login_post = function(req, res) {
+exports.login_post = function (req, res) {
   //Check if the user isnt already logged in
   const bearerHeader = req.headers["autorization"];
   if (typeof bearerHeader !== "undefined") {
@@ -25,12 +26,39 @@ exports.login_post = function(req, res) {
   var email = req.body.email;
 
   //check if the username is registered
-  User.find({ name }, (err, result) => {
+  User.find({name,password,email}, (err, result)=>{
+    if(err) console.log(err);
+
+    if(result !== null || typeof result !== 'undefined' || result !== []){
+      
+      let payload = {
+        _id: result._id,
+        name,
+        email,
+        role: result.role
+      };
+
+      //signign the token
+      let tokenData = await signed(payload);
+      res.json({
+        tokenData,
+        message: "Successfully Logged in !"
+      });
+      
+    }else{
+      res.send(err);
+    }
+  })
+
+};
+
+/* 
+User.find({ name }, (err, result) => {
     if (err) console.log(err);
 
     console.log("this is result" + result);
 
-    if (result !== null) {
+    if (result !== null || typeof result !== 'undefined') {
       //check if the email is correct
       User.findOne({ email }, (err, rez) => {
         if (err) console.log(err);
@@ -65,4 +93,4 @@ exports.login_post = function(req, res) {
       });
     }
   });
-};
+*/
