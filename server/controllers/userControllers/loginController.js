@@ -26,30 +26,27 @@ exports.login_post = function (req, res) {
   var email = req.body.email;
 
   //check if the username is registered
-  User.find({name,password,email}, (err, result)=>{
-    if(err) console.log(err);
+  User.find({ name, password, email }, async (err, result) => {
+    if (err) console.log(err);
 
-    if(result !== null || typeof result !== 'undefined' || result !== []){
-      
+    if (result !== null || typeof result !== "undefined" || result !== []) {
       let payload = {
         _id: result._id,
         name,
         email,
-        role: result.role
+        role: result.role,
       };
 
       //signign the token
       let tokenData = await signed(payload);
       res.json({
         tokenData,
-        message: "Successfully Logged in !"
+        message: "Successfully Logged in !",
       });
-      
-    }else{
+    } else {
       res.send(err);
     }
-  })
-
+  });
 };
 
 /* 
