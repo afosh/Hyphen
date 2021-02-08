@@ -9,6 +9,8 @@ const courseRouter = require("./routes/coursesRoutes");
 
 const formidable = require("express-formidable");
 
+const PORT = 5000 || process.env.PORT;
+
 db.Connect();
 
 app.use(express.urlencoded({ extended: true }));
@@ -23,4 +25,4 @@ app.get("/", (req, res) => {
   res.send("helloo world");
 });
 
-app.listen(3000, () => console.log("server is up"));
+app.listen(PORT, () => console.log(`server is running at port: ${PORT}`));
