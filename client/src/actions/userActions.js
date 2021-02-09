@@ -1,5 +1,5 @@
-import axios from "axios";
-import {
+//import axios from "axios";
+/* import {
   USER_SIGNIN_REQUEST,
   USER_SIGNIN_SUCCESS,
   USER_SIGNIN_FAILED,
@@ -9,10 +9,36 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAILED,
-} from "../constants/userConstants";
-import Cookie from "js-cookie";
+} from "../constants/userConstants"; */
+//import Cookie from "js-cookie";
+import { AUTH } from "../constants/userConstants";
+import * as api from "../api/index.js";
 
-const update = ({ userId, name, email, password }) => async (
+export const signIn = (userInfo, router) => async (dispatch) => {
+  try {
+    const { data } = await api.signIn(userInfo);
+
+    dispatch({ type: AUTH, data });
+
+    router.push("/");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const register = (userInfo, router) => async (dispatch) => {
+  try {
+    const { data } = await api.register(userInfo);
+
+    dispatch({ type: AUTH, data });
+
+    router.push("/");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/* const update = ({ userId, name, email, password }) => async (
   dispatch,
   getState
 ) => {
@@ -67,3 +93,4 @@ const register = (name, email, password) => async (dispatch) => {
   }
 };
 export { signin, register, update };
+ */

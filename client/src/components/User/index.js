@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { signin, register } from "../../actions/userActions";
+import { signIn, register } from "../../actions/userActions";
 // import { AUTH } from "../../constants/userConstants";
 import { Paper, TextField, Typography, Button } from "@material-ui/core";
 
@@ -11,16 +12,23 @@ const initialState = {
   password: "",
 };
 
-const Register = () => {
+const User = () => {
   const [form, setForm] = useState(initialState);
-  // const [isSignup, setIsSignup] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
 
+  const switchMode = () => {
+    setForm(initialState);
+    setIsSignup((isSignup) => !isSignup);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(register(form, history));
-    console.log({ form });
+    if (isSignup) {
+      dispatch(register(form, history));
+    } else {
+      dispatch(signIn(form, history));
+    }
   };
 
   const handleChange = (e) =>
@@ -28,17 +36,20 @@ const Register = () => {
   return (
     <Paper>
       <form onSubmit={handleSubmit}>
-        <Typography variant="h6">Register</Typography>
-
-        <TextField
-          name="name"
-          variant="outlined"
-          label="Name"
-          fullWidth
-          required
-          type="name"
-          onChange={handleChange}
-        />
+        <Typography variant="h6">{isSignup ? "Register" : "SignIn"}</Typography>
+        {isSignup && (
+          <>
+            <TextField
+              name="name"
+              variant="outlined"
+              label="Name"
+              fullWidth
+              required
+              type="name"
+              onChange={handleChange}
+            />
+          </>
+        )}
         <TextField
           name="email"
           variant="outlined"
@@ -66,12 +77,14 @@ const Register = () => {
           type="submit"
           fullWidth
         >
-          Register
+          {isSignup ? "Register" : "SignIn"}
         </Button>
-        <Typography>have an account ?</Typography>
+        <Button onClick={switchMode}>
+          {isSignup ? "have an account ?" : "Create an Account"}
+        </Button>
       </form>
     </Paper>
   );
 };
 
-export default Register;
+export default User;
