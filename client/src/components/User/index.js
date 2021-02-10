@@ -4,7 +4,20 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { signIn, register } from "../../actions/userActions";
 // import { AUTH } from "../../constants/userConstants";
-import { Paper, TextField, Typography, Button } from "@material-ui/core";
+import {
+  Paper,
+  TextField,
+  Typography,
+  Button,
+  IconButton,
+  InputAdornment,
+  Grid,
+  Input,
+  Container,
+} from "@material-ui/core";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import useStyles from "./styles";
 
 const initialState = {
   name: "",
@@ -12,15 +25,19 @@ const initialState = {
   password: "",
 };
 
-const User = () => {
+const User = ({ type }) => {
   const [form, setForm] = useState(initialState);
   const [isSignup, setIsSignup] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () => setShowPassword(!showPassword);
+  const classes = useStyles();
 
   const switchMode = () => {
     setForm(initialState);
     setIsSignup((isSignup) => !isSignup);
+    setShowPassword(false);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,57 +51,80 @@ const User = () => {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
   return (
-    <Paper>
-      <form onSubmit={handleSubmit}>
-        <Typography variant="h6">{isSignup ? "Register" : "SignIn"}</Typography>
-        {isSignup && (
-          <>
-            <TextField
-              name="name"
-              variant="outlined"
-              label="Name"
-              fullWidth
+    <Container component="main" maxWidth="xs">
+      <Paper className={classes.paper} elevation={2}>
+        <form onSubmit={handleSubmit} className={classes.form}>
+          <Typography component="h1" variant="h5" className={classes.h1}>
+            {isSignup ? "Register" : "SignIn"}
+          </Typography>
+          <Grid container spacing={4}>
+            {isSignup && (
+              <>
+                <Input
+                  name="name"
+                  variant="filled"
+                  label="Name"
+                  fullWidth
+                  required
+                  type="name"
+                  onChange={handleChange}
+                  autoComplete="name"
+                  className={classes.input}
+                />
+              </>
+            )}
+
+            <Input
+              className={classes.input}
+              name="email"
+              variant="filled"
+              label="Email"
               required
-              type="name"
+              type="email"
+              fullWidth
+              autoComplete="email"
               onChange={handleChange}
             />
-          </>
-        )}
-
-        <TextField
-          name="email"
-          variant="outlined"
-          label="Email"
-          required
-          type="email"
-          fullWidth
-          multiline
-          rows={4}
-          onChange={handleChange}
-        />
-        <TextField
-          name="password"
-          variant="outlined"
-          label="Password"
-          fullWidth
-          required
-          onChange={handleChange}
-        />
-
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          type="submit"
-          fullWidth
-        >
-          {isSignup ? "Register" : "SignIn"}
-        </Button>
-        <Button onClick={switchMode}>
-          {isSignup ? "have an account ?" : "Create an Account"}
-        </Button>
-      </form>
-    </Paper>
+            <Input
+              className={classes.input}
+              name="password"
+              variant="filled"
+              label="Password"
+              fullWidth
+              required
+              autoComplete="current-password"
+              onChange={handleChange}
+              type={showPassword ? "text" : "password"}
+              handleShowPassword={handleShowPassword}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton onClick={handleShowPassword}>
+                    {type === "password" ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </Grid>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            type="submit"
+            fullWidth
+            className={classes.submit}
+          >
+            {isSignup ? "Register" : "SignIn"}
+          </Button>
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Button onClick={switchMode}>
+                {isSignup ? "have an account ?" : "Create an Account"}
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Paper>
+    </Container>
   );
 };
 
