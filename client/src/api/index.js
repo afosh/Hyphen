@@ -11,6 +11,7 @@ API.interceptors.request.use((req) => {
 
   return req;
 });
-
+export const createProject = (newProject) =>
+  API.post("/project/v2/upload", newProject);
 export const signIn = (userInfo) => API.post("/user/login", userInfo);
 export const register = (userInfo) => API.post("/user/register", userInfo);
