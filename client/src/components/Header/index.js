@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import { LOGOUT } from "../../constants/userConstants";
 import { AppBar, Toolbar, Typography, Button, Avatar } from "@material-ui/core";
-
+import NavBBar from "./NavBBar";
 import useStyles from "./styles";
 
 const Header = () => {
@@ -34,6 +34,16 @@ const Header = () => {
   }, [location]);
   return (
     <div className="header">
+      <NavBBar></NavBBar>
+    </div>
+  );
+};
+
+export default Header;
+
+/*
+
+
       <AppBar position="static" className={classes.appBar}>
         <div>
           <Typography
@@ -61,8 +71,5 @@ const Header = () => {
           )}
         </Toolbar>
       </AppBar>
-    </div>
-  );
-};
 
-export default Header;
+*/

@@ -18,7 +18,7 @@ import {
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import useStyles from "./styles";
-
+import Box from "@material-ui/core/Box";
 const initialState = {
   name: "",
   email: "",
@@ -55,14 +55,14 @@ const User = ({ type }) => {
       <Paper className={classes.paper} elevation={2}>
         <form onSubmit={handleSubmit} className={classes.form}>
           <Typography component="h1" variant="h5" className={classes.h1}>
-            {isSignup ? "Register" : "SignIn"}
+            {isSignup ? "Register" : "Log In"}
           </Typography>
           <Grid container spacing={4}>
             {isSignup && (
               <>
                 <Input
                   name="name"
-                  variant="filled"
+                  variant="outlined"
                   label="Name"
                   fullWidth
                   required
@@ -84,6 +84,7 @@ const User = ({ type }) => {
               fullWidth
               autoComplete="email"
               onChange={handleChange}
+              color="secondary"
             />
             <Input
               className={classes.input}
@@ -113,11 +114,11 @@ const User = ({ type }) => {
             fullWidth
             className={classes.submit}
           >
-            {isSignup ? "Register" : "SignIn"}
+            {isSignup ? "Register" : "Log in"}
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Button onClick={switchMode}>
+              <Button onClick={switchMode} className={classes.form}>
                 {isSignup ? "have an account ?" : "Create an Account"}
               </Button>
             </Grid>
