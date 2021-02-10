@@ -3,6 +3,8 @@ import "./styles.js";
 import Home from "./components/Home/Home";
 import User from "./components/User/index";
 import Header from "./components/Header/index";
+import Projects from "./components/Projects/index";
+import ProjectForm from "./components/Projects/ProjectForm/index";
 // material imports
 
 import useStyles from "./styles";
@@ -16,7 +18,8 @@ function App() {
       <div className="container">
         <Switch>
           <Route path="/" exact component={Home} />
-
+          <Route path="/projects" exact component={Projects} />
+          <Route path="/projectForm" exact component={ProjectForm} />
           <Route path="/user" exact component={User} />
         </Switch>
       </div>
