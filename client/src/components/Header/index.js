@@ -3,15 +3,8 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
 import { LOGOUT } from "../../constants/userConstants";
-import {
-  AppBar,
-  IconButton,
-  Toolbar,
-  Typography,
-  Button,
-  Avatar,
-} from "@material-ui/core";
-import AccountCircle from "@material-ui/icons/AccountCircle";
+import { AppBar, Toolbar, Typography, Button, Avatar } from "@material-ui/core";
+
 import useStyles from "./styles";
 
 const Header = () => {
@@ -43,13 +36,18 @@ const Header = () => {
     <div className="header">
       <AppBar position="static" className={classes.appBar}>
         <div>
-          <Typography component={Link} to="/" variant="h3" align="center">
+          <Typography
+            component={Link}
+            to="/"
+            variant="h3"
+            className={classes.title}
+          >
             Hyphen
           </Typography>
         </div>
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           {user ? (
-            <div>
+            <div className={classes.avatar}>
               <Avatar>{user.name}</Avatar>
               <Typography className={classes.userName} variant="h6">
                 {user.name}
@@ -57,11 +55,10 @@ const Header = () => {
               <Button onClick={logout}>Log out</Button>
             </div>
           ) : (
-            <Button>SignIn</Button>
+            <Button component={Link} to="/user" classNAme={classes.button}>
+              SignIn
+            </Button>
           )}
-          {/* <IconButton edge="start">
-            <AccountCircle />
-          </IconButton> */}
         </Toolbar>
       </AppBar>
     </div>
