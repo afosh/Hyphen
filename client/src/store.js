@@ -18,7 +18,12 @@ const reducer = combineReducers({
   userSignin: userSigninReducer,
   userRegister: userRegisterReducer,
 }); */
-
+const userInfoFromStorage = localStorage.getItem("profile")
+  ? JSON.parse(localStorage.getItem("profile"))
+  : null;
+const initialState = {
+  authReducer: userInfoFromStorage,
+};
 const reducer = combineReducers({
   authReducer,
 });
@@ -26,7 +31,7 @@ const reducer = combineReducers({
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducer,
-  //initialState,
+  initialState,
   composeEnhancer(applyMiddleware(thunk))
 );
 
