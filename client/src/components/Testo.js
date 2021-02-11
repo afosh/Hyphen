@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
-
+import Pproject from "./Pproject";
 function Testo() {
   const [Projects, setProjects] = useState([]);
   useEffect(() => {
@@ -25,6 +25,7 @@ function Testo() {
           </div>
         );
       })}
+      <Pproject></Pproject>
     </div>
   );
 }
