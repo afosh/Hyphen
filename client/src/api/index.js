@@ -17,6 +17,9 @@ export const createProject = (newProject) =>
 export const fetchProjects = () => API.get("/project/v1/projects");
 export const deleteProject = (id) => API.delete(`/project/v1/projects/${id}`);
 // course
+export const fetchCourses = () => API.get("/course");
+export const createCourses = (newCourse) =>
+  API.post("/course/create", newCourse);
 // posts
 export const fetchPosts = () => API.get("/social");
 export const createPost = (newPost) => API.post("/social/post/create", newPost);

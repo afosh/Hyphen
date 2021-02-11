@@ -4,6 +4,7 @@ import { authReducer } from "./reducers/userReducers";
 //import { projectReducer } from "./reducers/projectReducers";
 import projects from "./reducers/projectReducers";
 import posts from "./reducers/postReducers";
+import courses from "./reducers/courseReducers";
 
 const userInfoFromStorage = localStorage.getItem("profile")
   ? JSON.parse(localStorage.getItem("profile"))
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   authReducer,
   //projectReducer,
   projects,
+  courses,
   posts,
 });
 
