@@ -5,7 +5,8 @@ import User from "./components/User/index";
 import Header from "./components/Header/index";
 import Projects from "./components/Projects/index";
 import ProjectForm from "./components/Projects/ProjectForm/index";
-
+import Posts from "./components/Posts/index";
+import PostForm from "./components/Posts/PostForm/index";
 import useStyles from "./styles";
 import Testo from "./components/Testo.js";
 
@@ -22,6 +23,8 @@ function App() {
           <Route path="/projectForm" exact component={ProjectForm} />
           <Route path="/testoo" component={Testo} />
           <Route path="/user" exact component={User} />
+          <Route path="/posts" component={Posts} />
+          <Route path="/postForm" exact component={PostForm} />
         </Switch>
       </div>
     </Router>
