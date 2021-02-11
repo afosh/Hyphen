@@ -14,9 +14,17 @@ API.interceptors.request.use((req) => {
 // project
 export const createProject = (newProject) =>
   API.post("/project/v2/upload", newProject);
-export const getProjects = () => API.get("/project/v1/projects");
+export const fetchProjects = () => API.get("/project/v1/projects");
 export const deleteProject = (id) => API.delete(`/project/v1/projects/${id}`);
 // course
+// posts
+export const fetchPosts = () => API.get("/social");
+export const createPost = (newPost) => API.post("/social/post/create", newPost);
+export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
+export const updatePost = (id, updatedPost) =>
+  API.patch(`/posts/${id}`, updatedPost);
+export const deletePost = (id) => API.delete(`/posts/${id}`);
+
 // user
 export const signIn = (userInfo) => API.post("/user/login", userInfo);
 export const register = (userInfo) => API.post("/user/register", userInfo);

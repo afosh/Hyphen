@@ -14,6 +14,7 @@ const authReducer = (state = { authData: null }, action) => {
 
     case actionType.REGISTER:
       localStorage.setItem("profile", JSON.stringify({ ...action?.data }));
+
       return {
         ...state,
         authData: action.data,

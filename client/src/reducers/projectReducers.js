@@ -1,6 +1,7 @@
 import { CREATE_PROJECT, GET_PROJECTS } from "../constants/projectConstants";
 
-const projectReducer = (projects = [], action) => {
+/* const projectReducer = (projects = [], action) => { */
+export default (projects = [], action) => {
   switch (action.type) {
     case GET_PROJECTS:
       return action.payload;
@@ -10,5 +11,5 @@ const projectReducer = (projects = [], action) => {
       return projects;
   }
 };
-export { projectReducer };
-export default projectReducer;
+//export { projectReducer };
+//export default projectReducer;
