@@ -1,33 +1,22 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import { authReducer } from "./reducers/userReducers";
-import { projectReducer } from "./reducers/projectReducers";
-/* import {
-  userSigninReducer,
-  userRegisterReducer,
-} from "./reducers/userReducers.js";
+//import { projectReducer } from "./reducers/projectReducers";
+import projects from "./reducers/projectReducers";
+import posts from "./reducers/postReducers";
 
-
-import Cookie from "js-cookie";
-
-const userInfo = Cookie.getJSON("userInfo") || null;
-const initialState = {
-  userSignin: { userInfo },
-};
-
-const reducer = combineReducers({
-  userSignin: userSigninReducer,
-  userRegister: userRegisterReducer,
-}); */
 const userInfoFromStorage = localStorage.getItem("profile")
   ? JSON.parse(localStorage.getItem("profile"))
   : null;
 const initialState = {
   authReducer: userInfoFromStorage,
+  // projectReducer: [],
 };
 const reducer = combineReducers({
   authReducer,
-  projectReducer,
+  //projectReducer,
+  projects,
+  posts,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

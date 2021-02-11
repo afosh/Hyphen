@@ -2,19 +2,27 @@ import { CREATE_PROJECT, GET_PROJECTS } from "../constants/projectConstants";
 
 import * as api from "../api/index";
 
-export const get = () => async (dispatch) => {
+/* export const getProjects = () => async (dispatch) => {
   try {
-    const { data } = await api.getProjects();
-    dispatch({ type: GET_PROJECTS, payload: data });
+    const { data } = await api.fetchProjects();
+    dispatch({ type: GET_PROJECTS, data });
   } catch (err) {
     console.log(err);
   }
-};
+}; */
+export const getProjects = () => async (dispatch) => {
+  try {
+    const { data } = await api.fetchProjects();
 
-export const create = (project) => async (dispatch) => {
+    dispatch({ type: GET_PROJECTS, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const createProject = (project) => async (dispatch) => {
   try {
     const { data } = await api.createProject(project);
-    dispatch({ type: CREATE_PROJECT, data });
+    dispatch({ type: CREATE_PROJECT, payload: data });
   } catch (err) {
     console.log(err);
   }
