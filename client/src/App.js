@@ -8,6 +8,7 @@ import ProjectForm from "./components/Projects/ProjectForm/index";
 
 import useStyles from "./styles";
 import Testo from "./components/Testo.js";
+import CreateProj from "./components/CreateProj";
 
 function App() {
   const classes = useStyles();
@@ -22,6 +23,7 @@ function App() {
           <Route path="/projectForm" exact component={ProjectForm} />
           <Route path="/testoo" component={Testo} />
           <Route path="/user" exact component={User} />
+          <Route path="/teet" component={CreateProj} />
         </Switch>
       </div>
     </Router>
