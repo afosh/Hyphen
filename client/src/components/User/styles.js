@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     padding: theme.spacing(2),
+    background: "#242830",
   },
   root: {
     "& .MuiTextField-root": {
@@ -17,14 +18,20 @@ export default makeStyles((theme) => ({
     marginBottom: "2rem",
   },
   form: {
+    color: "#0984e3",
     width: "100%", // Fix IE 11 issue.
+    textAlign: "center",
     marginTop: theme.spacing(5),
     alignItems: "center",
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    background: "#1D2026",
   },
   input: {
-    marginBottom: "2rem",
+    margin: "10px",
+    padding: "10px",
+    textAlign: "center",
+    background: "#1D2026",
   },
 }));

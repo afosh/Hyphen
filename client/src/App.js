@@ -13,6 +13,7 @@ function App() {
   return (
     <Router>
       <Header />
+
       <div className="container">
         <Switch>
           <Route path="/" exact component={Home} />
