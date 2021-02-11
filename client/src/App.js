@@ -9,6 +9,9 @@ import Posts from "./components/Posts/index";
 import PostForm from "./components/Posts/PostForm/index";
 import useStyles from "./styles";
 import Testo from "./components/Testo.js";
+import CourseForm from "./components/Courses/CourseForm/index";
+import Courses from "./components/Courses/index";
+import Course from "./components/Courses/Course/index";
 
 function App() {
   const classes = useStyles();
@@ -25,6 +28,9 @@ function App() {
           <Route path="/user" exact component={User} />
           <Route path="/posts" component={Posts} />
           <Route path="/postForm" exact component={PostForm} />
+          <Route path="/courseForm" exact component={CourseForm} />
+          {/*  <Route path="/course" exact component={Course} /> */}
+          <Route path="/courses" exact component={Courses} />
         </Switch>
       </div>
     </Router>

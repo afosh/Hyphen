@@ -16,8 +16,8 @@ import { useDispatch } from "react-redux";
 
 //import { likePost, deletePost } from "../../../actions/postActions";
 
-const Post = ({ post, setCurrentId }) => {
-  const dispatch = useDispatch();
+const Course = ({ post, setCurrentId }) => {
+  /*  const dispatch = useDispatch();
 
   const user = JSON.parse(localStorage.getItem("profile"));
 
@@ -39,9 +39,9 @@ const Post = ({ post, setCurrentId }) => {
           &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
         </>
       );
-    }
+    } 
 
-    return (
+     return (
       <>
         <ThumbUpAltOutlined fontSize="small" />
         &nbsp;Like
@@ -54,9 +54,9 @@ const Post = ({ post, setCurrentId }) => {
       <CardMedia title={post.title} />
       <div>
         <Typography variant="h6">{post.name}</Typography>
-        {/*  <Typography variant="body2">
+         <Typography variant="body2">
           {moment(post.createdAt).fromNow()}
-        </Typography> */}
+        </Typography> 
       </div>
       {(user?.result?.googleId === post?.creator ||
         user?.result?._id === post?.creator) && (
@@ -84,7 +84,7 @@ const Post = ({ post, setCurrentId }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        {/*  <Button
+        <Button
           size="small"
           color="primary"
           disabled={!user?.result}
@@ -101,10 +101,10 @@ const Post = ({ post, setCurrentId }) => {
           >
             <DeleteIcon fontSize="small" /> Delete
           </Button>
-        )} */}
+        )}
       </CardActions>
     </Card>
-  );
+  );  */
 };
 
-export default Post;
+export default Course;

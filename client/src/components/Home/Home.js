@@ -5,6 +5,7 @@ import { getProjects } from "../../actions/projectActions";
 import Projects from "../Projects/index";
 import Project from "../Projects/Project/index";
 import Posts from "../Posts/index";
+import Courses from "../Courses/index";
 const Home = () => {
   const [currentId, setCurrentId] = useState(0);
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Home = () => {
       <Projects setCurrentId={setCurrentId} />
       <Project setCurrentId={setCurrentId} />
       <Posts setCurrentId={setCurrentId} />
+      <Courses />
       {/* <User /> */}
     </div>
   );
