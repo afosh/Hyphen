@@ -14,7 +14,7 @@ const ProjectForm = ({ currentId, setCurrentId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (currentId === 0) {
-      dispatch(create({ ...projectData, name: user?.name }));
+      dispatch(create({ ...projectData, name: user.name }));
       // clear();
     } else {
       dispatch(update(currentId, { ...projectData, name: user.name }));

@@ -9,20 +9,19 @@ import { Grid, CircularProgress, Button } from "@material-ui/core";
 const Projects = ({ setCurrentId }) => {
   const projects = useSelector((state) => state.projects);
   const user = JSON.parse(localStorage.getItem("profile"));
-  return (
-    <>
-      !projects.length ?
-      <CircularProgress /> : (
-      <Grid>
-        {projects.map((project) => (
-          <Grid key={project.key}>
-            <Project />
-          </Grid>
-        ))}
-      </Grid>
-      )
-      <Project setCurrentId={setCurrentId} />
-      {user ? (
+  return !projects.length ? (
+    <CircularProgress />
+  ) : (
+    <Grid>
+      {projects.map((project) => (
+        <Grid key={project._id}>
+          <Project project={project} setCurrentId={setCurrentId} />
+        </Grid>
+      ))}
+    </Grid>
+  );
+  /*      <Project project={project} setCurrentId={setCurrentId} />)  
+     {user ? (
         <div>
           <Button component={Link} to="/projectForm">
             Create new project
@@ -30,9 +29,7 @@ const Projects = ({ setCurrentId }) => {
         </div>
       ) : (
         <Button></Button>
-      )}
-    </>
-  );
+      )} */
 };
 
 export default Projects;
