@@ -20,7 +20,7 @@ export const deleteProject = (id) => API.delete(`/project/v1/projects/${id}`);
 // posts
 export const fetchPosts = () => API.get("/social");
 export const createPost = (newPost) => API.post("/social/post/create", newPost);
-export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
+
 export const updatePost = (id, updatedPost) =>
   API.patch(`/posts/${id}`, updatedPost);
 export const deletePost = (id) => API.delete(`/posts/${id}`);
