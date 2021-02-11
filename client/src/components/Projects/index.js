@@ -9,16 +9,12 @@ import { Grid, CircularProgress, Button } from "@material-ui/core";
 const Projects = ({ setCurrentId }) => {
   const projects = useSelector((state) => state.projects);
   const user = JSON.parse(localStorage.getItem("profile"));
-  return !projects.length ? (
-    <CircularProgress />
-  ) : (
-    <Grid>
-      {projects.map((project) => (
-        <Grid key={project._id}>
-          <Project project={project} setCurrentId={setCurrentId} />
-        </Grid>
-      ))}
-    </Grid>
+  console.log(projects);
+  var data = "afosh";
+  return (
+    <div>
+      <h1>hello</h1>
+    </div>
   );
   /*      <Project project={project} setCurrentId={setCurrentId} />)  
      {user ? (

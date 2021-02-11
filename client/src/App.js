@@ -7,6 +7,7 @@ import Projects from "./components/Projects/index";
 import ProjectForm from "./components/Projects/ProjectForm/index";
 
 import useStyles from "./styles";
+import Testo from "./components/Testo.js";
 
 function App() {
   const classes = useStyles();
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/projects" exact component={Projects} />
           <Route path="/projectForm" exact component={ProjectForm} />
+          <Route path="/testoo" component={Testo} />
           <Route path="/user" exact component={User} />
         </Switch>
       </div>

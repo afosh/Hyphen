@@ -1,0 +1,153 @@
+[33mcommit c9300a5b078a9022b2d6085f4157f3b1992921ca[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: d221f33 5c09c52
+Author: afosh <afoshidris@gmail.com>
+Date:   Thu Feb 11 01:33:55 2021 +0200
+
+    styling
+
+[33mcommit d221f335288a2d848b237eecb7eead380cee004a[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Thu Feb 11 01:31:57 2021 +0200
+
+    styling phase 1
+
+[33mcommit 5c09c5201e9f2952abbea5cd0f4df4261a58772f[m
+Merge: c37a8e7 a4cfbca
+Author: afosh <afoshidris@gmail.com>
+Date:   Thu Feb 11 00:17:13 2021 +0200
+
+    Merge pull request #5 from attaryz/master
+    
+    project files
+
+[33mcommit a4cfbca2f0c67c54d60bbe1c6391d488c06b4a4f[m
+Author: Abdullah <markosberg123@gmail.com>
+Date:   Thu Feb 11 00:12:07 2021 +0200
+
+    project files
+
+[33mcommit c37a8e76a32d03977d0c5bb75e969bcf4f412b73[m
+Merge: 8bc8eac d45eca1
+Author: afosh <afoshidris@gmail.com>
+Date:   Wed Feb 10 19:48:01 2021 +0200
+
+    Merge pull request #4 from attaryz/master
+    
+    fixed form
+
+[33mcommit d45eca1cb1485df8ed29a7cb5daaad94bfe839f1[m
+Author: Abdullah <markosberg123@gmail.com>
+Date:   Wed Feb 10 18:50:08 2021 +0200
+
+    fixed form
+
+[33mcommit 8bc8eacdd8f07b7450df575e99f16efac9a7c4e7[m
+Merge: 59ab485 8677fa4
+Author: afosh <afoshidris@gmail.com>
+Date:   Wed Feb 10 17:28:11 2021 +0200
+
+    Merge pull request #3 from attaryz/master
+    
+    fixed user signin
+
+[33mcommit 8677fa4a58b274d3e657d3be9af64a76c21852c0[m
+Author: Abdullah <markosberg123@gmail.com>
+Date:   Wed Feb 10 16:32:23 2021 +0200
+
+    fixed user signin
+
+[33mcommit 59ab485259abf910ed859aa4f968eb3d05bf7dac[m
+Merge: 2ce2bb6 86577f7
+Author: afosh <afoshidris@gmail.com>
+Date:   Tue Feb 9 08:06:50 2021 +0200
+
+    Merge pull request #2 from attaryz/master
+    
+    second merge
+
+[33mcommit 86577f74e18f530f00cd01992d9dfac5a0a98ea3[m
+Author: Abdullah <markosberg123@gmail.com>
+Date:   Tue Feb 9 00:44:00 2021 +0200
+
+    second commit
+
+[33mcommit 2ce2bb60c1df06daf9f4cec8a64101d2b97e9afc[m
+Merge: 0aa0430 c3703d8
+Author: afosh <afoshidris@gmail.com>
+Date:   Mon Feb 8 18:31:00 2021 +0200
+
+    Merge pull request #1 from attaryz/master
+    
+    abdallah client merge
+
+[33mcommit c3703d8d0ee594c3316fc757c989dabbec0c1b6f[m
+Author: Abdullah <markosberg123@gmail.com>
+Date:   Sun Feb 7 18:53:41 2021 +0200
+
+    first commit
+
+[33mcommit 0aa0430caf7d0494048d593545e11603226e689c[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Sat Jan 30 10:13:19 2021 +0200
+
+    >fixed loginController and registerController: appending check
+
+[33mcommit 70184c62ef39ad5ef90026272dbf1c8e8bbfb315[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Wed Jan 27 21:42:28 2021 +0200
+
+    server: edited result
+
+[33mcommit 6a45434f1bac43cbee7cd62e1ba70c8e430dfed5[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Wed Jan 27 20:57:43 2021 +0200
+
+    server:
+
+[33mcommit 16929f97d9019e1c5cd2f744179faea59892096c[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Mon Jan 25 22:38:16 2021 +0200
+
+    project routes and controllers updates
+
+[33mcommit 737086603d75451532a47bd70612842393b14c79[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Sat Jan 23 20:07:47 2021 +0200
+
+    updated most things
+
+[33mcommit 33535dced90a83ac6a567f7deb0db7973984e1df[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Fri Jan 15 17:31:53 2021 +0200
+
+    server:
+
+[33mcommit ea3360360dc0fac234e1f4a02df0d030bcf07ac0[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Fri Jan 15 15:36:14 2021 +0200
+
+    server/controllers/postControllers/postController:
+
+[33mcommit b7516cb839c738be12c0c824702f712b7ef95316[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Fri Jan 15 14:20:31 2021 +0200
+
+    updated Social routes
+
+[33mcommit ae3bae9a91485bcf62c19b545e54b935a3c07453[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Thu Jan 14 20:03:16 2021 +0200
+
+    adding the client
+
+[33mcommit 447c24f86b62740f40a8256341fc7e950706f8c1[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Thu Jan 14 19:33:39 2021 +0200
+
+    first message
+
+[33mcommit 84d7cc04f1d5335f09bd0096293bf45b3ee6b0dd[m
+Author: afosh <afoshidris@gmail.com>
+Date:   Thu Jan 14 19:28:04 2021 +0200
+
+    project structure
